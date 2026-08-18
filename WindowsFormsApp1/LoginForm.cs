@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -55,6 +55,16 @@ namespace WindowsFormsApp1
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AccountCreationForm accountForm = new AccountCreationForm();
+
+            accountForm.FormClosed += (s, args) => this.Show();
+
+            this.Hide();
+            accountForm.Show();
         }
     }
 }

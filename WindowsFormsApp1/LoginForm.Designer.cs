@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -85,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(537, 238);
+            this.label3.Location = new System.Drawing.Point(537, 266);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 26);
             this.label3.TabIndex = 4;
@@ -95,7 +96,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(569, 267);
+            this.pictureBox1.Location = new System.Drawing.Point(569, 295);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(115, 119);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,11 +107,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Impact", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(559, 27);
+            this.label4.Location = new System.Drawing.Point(509, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(192, 60);
+            this.label4.Size = new System.Drawing.Size(212, 60);
             this.label4.TabIndex = 6;
-            this.label4.Text = "VAULTIFY";
+            this.label4.Text = "THE VAULT";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox2
@@ -137,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(535, 407);
+            this.label6.Location = new System.Drawing.Point(535, 435);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(188, 26);
             this.label6.TabIndex = 8;
@@ -147,17 +148,18 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(579, 433);
+            this.linkLabel1.Location = new System.Drawing.Point(579, 461);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(95, 13);
             this.linkLabel1.TabIndex = 9;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Create an account";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(522, 36);
+            this.pictureBox3.Location = new System.Drawing.Point(708, 35);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 44);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,18 +181,28 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(560, 380);
+            this.label9.Location = new System.Drawing.Point(560, 408);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(130, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "Authentication on standby";
             this.label9.Click += new System.EventHandler(this.label8_Click);
             // 
-            // Form1
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(552, 229);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Login";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 474);
+            this.ClientSize = new System.Drawing.Size(781, 507);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox3);
@@ -208,7 +220,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -235,6 +247,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
     }
 }
 

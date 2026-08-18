@@ -9,34 +9,15 @@ USE vaultify;
 
 CREATE TABLE employees (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
-    employee_number VARCHAR(50) NOT NULL UNIQUE,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
+    fingerprint_template BLOB,
     role ENUM('EMPLOYEE', 'ADMIN') NOT NULL DEFAULT 'EMPLOYEE',
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         ON UPDATE CURRENT_TIMESTAMP
-);
-
--- =========================================
--- FINGERPRINT CREDENTIALS
--- =========================================
-
-CREATE TABLE fingerprint_credentials (
-    fingerprint_id INT AUTO_INCREMENT PRIMARY KEY,
-    employee_id INT NOT NULL,
-    template_data BLOB NOT NULL,
-    finger_index VARCHAR(30),
-
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-        ON UPDATE CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (employee_id)
-        REFERENCES employees(employee_id)
 );
 
 -- =========================================
