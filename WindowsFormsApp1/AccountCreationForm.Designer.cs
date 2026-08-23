@@ -40,14 +40,18 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.Register = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.picFPImg = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -129,7 +133,7 @@
             // 
             // Register
             // 
-            this.Register.Location = new System.Drawing.Point(27, 347);
+            this.Register.Location = new System.Drawing.Point(27, 377);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(204, 23);
             this.Register.TabIndex = 13;
@@ -139,7 +143,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.picFPImg);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label10);
@@ -154,28 +159,43 @@
             this.groupBox1.Controls.Add(this.Lastname);
             this.groupBox1.Location = new System.Drawing.Point(51, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(263, 389);
+            this.groupBox1.Size = new System.Drawing.Size(263, 434);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
-            // label9
+            // tableLayoutPanel1
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label9.Location = new System.Drawing.Point(52, 293);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(149, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Place thumb on scanner . . .";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.statusLabel, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(51, 294);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(162, 47);
+            this.tableLayoutPanel1.TabIndex = 18;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.statusLabel.Location = new System.Drawing.Point(11, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(140, 47);
+            this.statusLabel.TabIndex = 17;
+            this.statusLabel.Text = "Place thumb on scanner . . .";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.statusLabel.Click += new System.EventHandler(this.statusLabel_Click);
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 320);
+            this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(196, 26);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "---------------------------------------------------------------\r\n\r\n";
+            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.TabIndex = 19;
             // 
             // pictureBox1
             // 
@@ -220,12 +240,21 @@
             this.label8.Text = "return";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
+            // picFPImg
+            // 
+            this.picFPImg.Location = new System.Drawing.Point(69, 180);
+            this.picFPImg.Name = "picFPImg";
+            this.picFPImg.Size = new System.Drawing.Size(115, 111);
+            this.picFPImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFPImg.TabIndex = 20;
+            this.picFPImg.TabStop = false;
+            // 
             // AccountCreationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(370, 487);
+            this.ClientSize = new System.Drawing.Size(370, 532);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
@@ -234,9 +263,13 @@
             this.Name = "AccountCreationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.AccountCreationForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,6 +293,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox picFPImg;
     }
 }

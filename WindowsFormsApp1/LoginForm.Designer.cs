@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Username = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,27 +42,31 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Login = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.statusLabel = new System.Windows.Forms.Label();
+            this.picFPImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // Username
             // 
-            this.textBox1.Location = new System.Drawing.Point(528, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Username.Location = new System.Drawing.Point(528, 137);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(204, 20);
+            this.Username.TabIndex = 0;
+            this.Username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // Password
             // 
-            this.textBox2.Location = new System.Drawing.Point(527, 192);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 20);
-            this.textBox2.TabIndex = 1;
+            this.Password.Location = new System.Drawing.Point(527, 192);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(204, 20);
+            this.Password.TabIndex = 1;
             // 
             // label1
             // 
@@ -138,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(535, 435);
+            this.label6.Location = new System.Drawing.Point(534, 448);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(188, 26);
             this.label6.TabIndex = 8;
@@ -148,7 +152,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(579, 461);
+            this.linkLabel1.Location = new System.Drawing.Point(578, 474);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(95, 13);
             this.linkLabel1.TabIndex = 9;
@@ -178,32 +182,60 @@
             this.label7.Text = "close";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label9
+            // Login
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(560, 408);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Authentication on standby";
-            this.label9.Click += new System.EventHandler(this.label8_Click);
+            this.Login.Location = new System.Drawing.Point(552, 229);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(157, 23);
+            this.Login.TabIndex = 15;
+            this.Login.Text = "Login";
+            this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click_1);
             // 
-            // button2
+            // tableLayoutPanel1
             // 
-            this.button2.Location = new System.Drawing.Point(552, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Login";
-            this.button2.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.statusLabel, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(547, 401);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(162, 47);
+            this.tableLayoutPanel1.TabIndex = 19;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.statusLabel.Location = new System.Drawing.Point(11, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(140, 47);
+            this.statusLabel.TabIndex = 17;
+            this.statusLabel.Text = "Place thumb on scanner . . .";
+            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.statusLabel.Click += new System.EventHandler(this.statusLabel_Click);
+            // 
+            // picFPImg
+            // 
+            this.picFPImg.Location = new System.Drawing.Point(569, 295);
+            this.picFPImg.Name = "picFPImg";
+            this.picFPImg.Size = new System.Drawing.Size(115, 111);
+            this.picFPImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFPImg.TabIndex = 21;
+            this.picFPImg.TabStop = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 507);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.picFPImg);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.Login);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.linkLabel1);
@@ -215,17 +247,21 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Password);
+            this.Controls.Add(this.Username);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,8 +269,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Username;
+        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -246,8 +282,10 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.PictureBox picFPImg;
     }
 }
 

@@ -13,7 +13,7 @@ CREATE TABLE employees (
     last_name VARCHAR(100) NOT NULL,
     username VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
-    fingerprint_template BLOB,
+    fingerprint_template BLOB NULL,
     role ENUM('EMPLOYEE', 'ADMIN') NOT NULL DEFAULT 'EMPLOYEE',
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
