@@ -1,4 +1,4 @@
-﻿using libzkfpcsharp;
+using libzkfpcsharp;
 using MySqlConnector;
 using System;
 using System.Drawing;
@@ -199,6 +199,36 @@ namespace WindowsFormsApp1
             }
             catch
             {
+            }
+
+
+            // -----------------------------------------------------
+            // Prevent registering a fingerprint already in use
+            // -----------------------------------------------------
+
+            if (RegisterCount == 0)
+            {
+                int existingEmployeeId = 0;
+                int existingScore = 0;
+
+                int identifyRet =
+                    fingerprintManager.Identify(
+                        capture.Template,
+                        ref existingEmployeeId,
+                        ref existingScore
+                    );
+
+                if (identifyRet == zkfperrdef.ZKFP_ERR_OK)
+                {
+                    statusLabel.Text =
+                        "Fingerprint is already registered to employee ID: "
+                        + existingEmployeeId
+                        + ". Please use a different finger.";
+
+                    enrollmentActive = false;
+
+                    return;
+                }
             }
 
 
@@ -479,6 +509,22 @@ namespace WindowsFormsApp1
 
 
                         command.ExecuteNonQuery();
+
+                        long newEmployeeId = command.LastInsertedId;
+
+                        // -------------------------------------------------
+                        // Add newly registered fingerprint to in-memory
+                        // algorithm cache so it is immediately recognized.
+                        // -------------------------------------------------
+                        if (registeredFingerprintTemplate != null &&
+                            registeredFingerprintTemplate.Length > 0 &&
+                            newEmployeeId > 0)
+                        {
+                            fingerprintManager.AddFingerprint(
+                                (int)newEmployeeId,
+                                registeredFingerprintTemplate
+                            );
+                        }
                     }
                 }
 
@@ -503,6 +549,11 @@ namespace WindowsFormsApp1
 
                 Password.Clear();
 
+                if (picFPImg.Image != null)
+                {
+                    picFPImg.Image.Dispose();
+                    picFPImg.Image = null;
+                }
 
                 registeredFingerprintTemplate =
                     null;
