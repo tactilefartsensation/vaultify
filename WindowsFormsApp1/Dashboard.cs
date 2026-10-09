@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+using MySqlConnector;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -29,8 +29,8 @@ namespace WindowsFormsApp1
             string query = @"
                 SELECT
                     employee_id,
-                    first_name,
-                    last_name,
+                    full_name,
+                    official_title,
                     username,
                     role,
                     created_at,
@@ -68,13 +68,13 @@ namespace WindowsFormsApp1
                                 );
 
                                 employeeInfo.AppendLine(
-                                    "First Name: " +
-                                    reader["first_name"].ToString()
+                                    "Full Name: " +
+                                    reader["full_name"].ToString()
                                 );
 
                                 employeeInfo.AppendLine(
-                                    "Last Name: " +
-                                    reader["last_name"].ToString()
+                                    "Title: " +
+                                    (reader["official_title"] != DBNull.Value ? reader["official_title"].ToString() : "N/A")
                                 );
 
                                 employeeInfo.AppendLine(
